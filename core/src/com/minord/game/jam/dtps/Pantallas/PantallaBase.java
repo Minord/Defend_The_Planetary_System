@@ -1,14 +1,14 @@
 package com.minord.game.jam.dtps.Pantallas;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.minord.game.jam.dtps.Defend_The_Planetary_System;
 
 public class PantallaBase implements Screen{
 	
-	protected Game MainGame;
+	protected Defend_The_Planetary_System MainGame;
 	
-	public PantallaBase(Game MainGame){
-		this.MainGame = MainGame;
+	public PantallaBase(Defend_The_Planetary_System gamePrincipal){
+		this.MainGame = gamePrincipal;
 	}
 
 	@Override

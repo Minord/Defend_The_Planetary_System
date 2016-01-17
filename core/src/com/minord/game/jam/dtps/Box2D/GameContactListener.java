@@ -7,7 +7,10 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 
 public class GameContactListener implements ContactListener{
 	
-	/*private boolean areColider(Contact contact, Object userA, Object userB){
+	public boolean isDead = false;
+	public boolean isHurt = false;
+
+	private boolean areColider(Contact contact, Object userA, Object userB){
 		Object userDataA = contact.getFixtureA().getUserData();
 		Object userDataB = contact.getFixtureB().getUserData();
 		
@@ -16,17 +19,23 @@ public class GameContactListener implements ContactListener{
 		}
 		
 		return ((userDataA.equals(userA)) && (userDataB.equals(userB))) || ((userDataB.equals(userB)) && (userDataA.equals(userA)));
-	}*/
+	}
 	
 	@Override
 	public void beginContact(Contact contact) {
-		
+		if(areColider(contact,"Personaje","Bala")){
+			isDead = true;
+		}
+		if(areColider(contact,"Personaje","Enemigo")){
+			isHurt = true;
+		}
 	}
 
 	@Override
 	public void endContact(Contact contact) {
-		// TODO Auto-generated method stub
-		
+		if(areColider(contact,"Personaje","Enemigo")){
+			isHurt = false;
+		}
 	}
 
 	@Override
@@ -40,5 +49,4 @@ public class GameContactListener implements ContactListener{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

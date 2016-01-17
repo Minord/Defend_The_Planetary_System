@@ -1,5 +1,6 @@
 package com.minord.game.jam.dtps.Actors;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -19,6 +20,6 @@ public class BackGround extends Actor{
 	
 	@Override
     public void draw(Batch batch, float parentAlpha) {
-		batch.draw(t, DataGame.pos_camara_x - (2.5f * 128f), DataGame.pos_camara_y - (2f * 128f));
+		batch.draw(t, DataGame.pos_camara_x - (Gdx.graphics.getWidth() / 2), DataGame.pos_camara_y - (Gdx.graphics.getHeight() / 2),Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     }
 }	
